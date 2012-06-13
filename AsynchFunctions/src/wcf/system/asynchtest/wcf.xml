@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3-027" display-name="AsynchTest" last-entity-id="2" parent="system:foglight_communitytutorials">
+    <relevant-role name="Administrator"/>
+    <view id="1" display-name="ProgressBar" ts="1339589400212" public="false" primary-input-key="progress" component="wcf.progress2">
+        <uuid>3f537524-5834-474e-aa01-894c998451b8</uuid>
+        <purpose name="dialog"/>
+        <purpose name="page"/>
+        <inputs>
+            <entry key="progress" data-type="wcf:ProgressTracker"/>
+        </inputs>
+        <flow>
+            <on action="complete">
+                <previous update="context"/>
+            </on>
+        </flow>
+        <config>
+            <property name="completedMessage">
+                <string xml:space="preserve">FINISHED!!!</string>
+            </property>
+            <property name="completeButtonText">
+                <string xml:space="preserve">CLOSE</string>
+            </property>
+            <property name="dataAvailability">
+                <object>
+                    <property name="progressTracker">
+                        <context-rv input-key="progress"/>
+                    </property>
+                </object>
+            </property>
+        </config>
+    </view>
+    <view id="2" display-name="ProgressStarter" ts="1339589124553" component="wcf.label">
+        <uuid>6dcdd121-4cd8-401a-b7b4-86fe8e6a76d1</uuid>
+        <purpose name="dashboard"/>
+        <inputs>
+            <entry key="timeRange" data-type="wcf:TimeRange"/>
+        </inputs>
+        <flow>
+            <on action="selection">
+                <popup id="system:asynchtest.1" type="modal">
+                    <context>
+                        <entry key="progress">
+                            <function-rv id="system:asynchtest.asynchCaller"/>
+                        </entry>
+                    </context>
+                </popup>
+            </on>
+        </flow>
+        <config>
+            <property name="label">
+                <string xml:space="preserve">START Asynch</string>
+            </property>
+        </config>
+    </view>
+    <association usage="message" id="finishedMessage" display-name="FinishedMessage" ts="1339592246369" public="false">
+        <uuid>13c3c0e5-4d7e-4fb1-a59a-d98ab9e5059c</uuid>
+        <config>
+            <property name="level">
+                <data-object-rv datasource-type="types" datasource-id="default" unique-id="static:wcf:MessageLevel|info"/>
+            </property>
+            <property name="text">
+                <i18n-rv key="system:asynchtest.plain.4"/>
+            </property>
+            <property name="details">
+                <i18n-rv key="system:asynchtest.plain.5"/>
+            </property>
+        </config>
+    </association>
+    <script-function type="groovy" id="asynchWorker" display-name="asynchWorker" ts="1339592903608" public="false" output-type="wcf:String" cache-results="true">
+        <uuid>5ed11495-f76c-4bce-ac77-e4ffd83918bb</uuid>
+    </script-function>
+    <script-function type="groovy" id="asynchCaller" display-name="asynchCaller" ts="1339590610534" public="false" output-type="wcf:ProgressTracker" cache-results="true">
+        <uuid>413a70ce-aa9e-42b2-9d4e-a40bf389140d</uuid>
+    </script-function>
+</module>
