@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3-027" display-name="AsynchTest" last-entity-id="2" parent="system:foglight_communitytutorials">
     <relevant-role name="Administrator"/>
-    <view id="1" display-name="ProgressBar" ts="1339589400212" public="false" primary-input-key="progress" component="wcf.progress2">
+    <view id="1" display-name="ProgressBar" ts="1340199093033" public="false" primary-input-key="progress" component="wcf.progress2">
         <uuid>3f537524-5834-474e-aa01-894c998451b8</uuid>
         <purpose name="dialog"/>
         <purpose name="page"/>
@@ -15,7 +15,9 @@
         </flow>
         <config>
             <property name="completedMessage">
-                <string xml:space="preserve">FINISHED!!!</string>
+                <function-rv id="system:asynchtest.getResult">
+                    <context-rv input-key="progress"/>
+                </function-rv>
             </property>
             <property name="completeButtonText">
                 <string xml:space="preserve">CLOSE</string>
@@ -66,10 +68,16 @@
             </property>
         </config>
     </association>
-    <script-function type="groovy" id="asynchWorker" display-name="asynchWorker" ts="1339592903608" public="false" output-type="wcf:String" cache-results="true">
+    <script-function type="groovy" id="asynchWorker" display-name="asynchWorker" ts="1340199203021" public="false" output-type="wcf:String" cache-results="true">
         <uuid>5ed11495-f76c-4bce-ac77-e4ffd83918bb</uuid>
     </script-function>
     <script-function type="groovy" id="asynchCaller" display-name="asynchCaller" ts="1339590610534" public="false" output-type="wcf:ProgressTracker" cache-results="true">
         <uuid>413a70ce-aa9e-42b2-9d4e-a40bf389140d</uuid>
+    </script-function>
+    <script-function type="groovy" id="getResult" display-name="AsynchGetResult" ts="1340198979300" public="false" output-type="wcf:String" cache-results="true">
+        <uuid>93b0225e-d97e-47cb-9499-fe303642d577</uuid>
+        <inputs>
+            <input name="tracker" type-name="wcf:ProgressTracker"/>
+        </inputs>
     </script-function>
 </module>

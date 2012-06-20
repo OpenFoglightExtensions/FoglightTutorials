@@ -1,0 +1,31 @@
+<topologyExport version='1.0.0'>
+  <objectInstance type='IDE_CAR_ExportContainer' id='0'>
+    <stringProperty name='name' xml:space='preserve'>Tutorial_AsynchFunctions</stringProperty>
+    <stringProperty name='description' xml:space='preserve'>Some Basic and Advanced Tutorials</stringProperty>
+    <objectProperty name='definitionGroups'>
+      <objectInstance type='IDE_ExpGroup_WCF' id='1'>
+        <stringProperty name='name' xml:space='preserve'>wcf</stringProperty>
+        <objectProperty name='container'>
+          <objectReference refId='0' />
+        </objectProperty>
+        <objectProperty name='includes'>
+          <objectInstance type='IDE_CI_WCFDefinition' id='2'>
+            <stringProperty name='ci_id' xml:space='preserve'>system:foglight_communitytutorials</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>system:foglight_communitytutorials</stringProperty>
+          </objectInstance>
+          <objectInstance type='IDE_CI_WCFDefinition' id='3'>
+            <stringProperty name='ci_id' xml:space='preserve'>system:asynchtest</stringProperty>
+            <objectProperty name='parent'>
+              <objectReference refId='1' />
+            </objectProperty>
+            <stringProperty name='name' xml:space='preserve'>system:asynchtest</stringProperty>
+          </objectInstance>
+        </objectProperty>
+      </objectInstance>
+    </objectProperty>
+    <stringProperty name='author' xml:space='preserve'>Stefan Marx</stringProperty>
+  </objectInstance>
+</topologyExport>

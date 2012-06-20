@@ -23,6 +23,9 @@ functionHelper.setMessage("Starting -- almost there !!!!")
 functionHelper.setProgress(99) 
 sleep (4000)
 
+
+functionHelper.setMessage("All OK")
+
 printf "READY"
 
 
