@@ -9,6 +9,8 @@ functionHelper.setMessage("Starting..")
 functionHelper.setProgress(20) 
 sleep (1000)
 
+
+
 functionHelper.setMessage("Starting -- almost there") 
 functionHelper.setProgress(60) 
 sleep (1000)
